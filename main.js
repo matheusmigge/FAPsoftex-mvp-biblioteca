@@ -8,6 +8,7 @@ const devolucaoRenovacao = require('./telas/devolucaoRenovacao')
 const informacoes = require('./telas/informacoes')
 const quitacaoDebitos = require('./telas/quitacaoDebitos')
 const despedidaSistema = require('./telas/despedidaSistema')
+const continuacao = require('./telas/continuacao')
 
 boasVindas.mostrarTela()
 login.mostrarTela()
@@ -15,6 +16,7 @@ usuario.checar(login.contaLogada)
 
 if(!usuario.regularizado) {
     usuario.avisoRegularizacao()
+    continuacao.mostrarTela();
 }
 
 while (!menuPrincipal.sairSistema) {
