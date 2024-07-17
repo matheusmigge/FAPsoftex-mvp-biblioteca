@@ -1,5 +1,6 @@
 const prompt = require('prompt-sync')();
 const elementosGraficos = require("../elementosGraficos/elementosGraficos");
+const continuacao = require('./continuacao');
 const despedidaSistema = require('./despedidaSistema');
 const menuPrincipal = require("./menuPrincipal")
 
@@ -20,18 +21,21 @@ const devolucaoRenovacao = {
             case 1:
                 console.log('Para devolver livros, dirija-se ao balcão de devolução.');
                 elementosGraficos.rodape();
+                continuacao.mostrarTela();
                 despedidaSistema.mostrarTela();
             break;
 
             case 2:
                 console.log('Para renovar empréstimos, dirija-se ao bibliotecário de plantão.');
                 elementosGraficos.rodape();
+                continuacao.mostrarTela();
                 despedidaSistema.mostrarTela();
             break;
         
             default:
                 console.log('Opção inválida! Tente novamente.');
                 elementosGraficos.rodape();
+                continuacao.mostrarTela();
             break;
         }
     }

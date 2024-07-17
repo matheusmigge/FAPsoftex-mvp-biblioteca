@@ -1,5 +1,6 @@
 const prompt = require('prompt-sync')();
-const elementosGraficos = require("../elementosGraficos/elementosGraficos")
+const elementosGraficos = require("../elementosGraficos/elementosGraficos");
+const continuacao = require('./continuacao');
 
 const informacoes = {
 
@@ -23,7 +24,7 @@ const informacoes = {
         console.log('E-mail: contato@aquelabiblioteca.org');
         elementosGraficos.rodape();
 
-        prompt('Pressione enter para continuar...')
+        continuacao.mostrarTela();
     }
 }
 

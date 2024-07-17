@@ -1,4 +1,5 @@
 const usuario = require("../checagens/usuario");
+const continuacao = require("./continuacao");
 
 const emprestimo = {
 
@@ -7,6 +8,7 @@ const emprestimo = {
             console.log('Tela de consulta de livros');
         } else {
             usuario.avisoRegularizacao();
+            continuacao.mostrarTela();
         }
     }
 }

@@ -1,6 +1,7 @@
 const prompt = require('prompt-sync')();
 const usuario = require("../checagens/usuario");
 const elementosGraficos = require("../elementosGraficos/elementosGraficos");
+const continuacao = require('./continuacao');
 const despedidaSistema = require('./despedidaSistema');
 const login = require("./login");
 const menuPrincipal = require("./menuPrincipal");
@@ -25,28 +26,28 @@ const quitacaoDebitos = {
             elementosGraficos.rodape();
 
             menuPrincipal.opcaoEscolhida = Number(prompt('Digite a opção desejada: '))
+            elementosGraficos.rodape();
 
             switch (menuPrincipal.opcaoEscolhida) {
                 case 1:
-                    console.log('');
                     console.log('Para efetuar sua quitação de débitos, por favor, dirija-se ao bacão.');
                     console.log('Retornando ao menu principal...');
                     elementosGraficos.rodape();
 
-                    prompt('Tecle enter para continuar.')
-                    elementosGraficos.rodape();
+                    continuacao.mostrarTela();
                 break;
 
                 case 2:
-                    console.log('');
                     console.log('Você deve regularizar sua situação para poder ter acesso novamente ao serviço de empréstimo de livros.');
                     elementosGraficos.rodape();
+
+                    continuacao.mostrarTela();
                     despedidaSistema.mostrarTela()
                 break;
             
                 default:
-                    console.log('');
                     console.log('Opção inválida! Tente novamente.');
+                    continuacao.mostrarTela();
                     elementosGraficos.rodape();
                 break;
             }
