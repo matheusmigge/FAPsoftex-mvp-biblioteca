@@ -3,7 +3,7 @@ const elementosGraficos = require("../elementosGraficos/elementosGraficos");
 const usuario = {
     regularizado: true,
 
-    checar: function(usuario) {
+    checarSeRegularizado: function(usuario) {
         if(usuario.debito > 0) {
             this.regularizado = false
         }

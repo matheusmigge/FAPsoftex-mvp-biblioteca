@@ -30,7 +30,7 @@ const login = {
             }
 
             if (this.loginBemSucedido == false) {
-
+                elementosGraficos.rodape();
                 console.log(`Login ou senha incorretos. Tente novamente.`);
                 elementosGraficos.rodape();
             }

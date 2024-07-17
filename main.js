@@ -2,7 +2,6 @@ const boasVindas = require('./telas/boasVindas')
 const login = require('./telas/login')
 const usuario = require('./checagens/usuario')
 const menuPrincipal = require('./telas/menuPrincipal')
-const elementosGraficos = require('./elementosGraficos/elementosGraficos')
 const emprestimo = require('./telas/emprestimo')
 const devolucaoRenovacao = require('./telas/devolucaoRenovacao')
 const informacoes = require('./telas/informacoes')
@@ -12,7 +11,7 @@ const continuacao = require('./telas/continuacao')
 
 boasVindas.mostrarTela()
 login.mostrarTela()
-usuario.checar(login.contaLogada)
+usuario.checarSeRegularizado(login.contaLogada)
 
 if(!usuario.regularizado) {
     usuario.avisoRegularizacao()
