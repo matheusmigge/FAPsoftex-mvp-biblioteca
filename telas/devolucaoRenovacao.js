@@ -1,5 +1,6 @@
 const prompt = require('prompt-sync')();
 const elementosGraficos = require("../elementosGraficos/elementosGraficos");
+const despedidaSistema = require('./despedidaSistema');
 const menuPrincipal = require("./menuPrincipal")
 
 const devolucaoRenovacao = {
@@ -13,23 +14,24 @@ const devolucaoRenovacao = {
         console.log('2 -> Renovar empréstimos');
         elementosGraficos.rodape();
         menuPrincipal.opcaoEscolhida = Number(prompt('Digite a opção desejada: '))
+        elementosGraficos.rodape();
 
         switch (menuPrincipal.opcaoEscolhida) {
             case 1:
                 console.log('Para devolver livros, dirija-se ao balcão de devolução.');
-                console.log('');
-                menuPrincipal.sairSistema = true;
+                elementosGraficos.rodape();
+                despedidaSistema.mostrarTela();
             break;
 
             case 2:
                 console.log('Para renovar empréstimos, dirija-se ao bibliotecário de plantão.');
-                console.log('');
-                menuPrincipal.sairSistema = true;
+                elementosGraficos.rodape();
+                despedidaSistema.mostrarTela();
             break;
         
             default:
                 console.log('Opção inválida! Tente novamente.');
-                console.log('');
+                elementosGraficos.rodape();
             break;
         }
     }

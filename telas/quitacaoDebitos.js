@@ -1,6 +1,7 @@
 const prompt = require('prompt-sync')();
 const usuario = require("../checagens/usuario");
 const elementosGraficos = require("../elementosGraficos/elementosGraficos");
+const despedidaSistema = require('./despedidaSistema');
 const login = require("./login");
 const menuPrincipal = require("./menuPrincipal");
 
@@ -30,7 +31,7 @@ const quitacaoDebitos = {
                     console.log('');
                     console.log('Para efetuar sua quitação de débitos, por favor, dirija-se ao bacão.');
                     console.log('Retornando ao menu principal...');
-                    console.log('');
+                    elementosGraficos.rodape();
 
                     prompt('Tecle enter para continuar.')
                     elementosGraficos.rodape();
@@ -39,13 +40,12 @@ const quitacaoDebitos = {
                 case 2:
                     console.log('');
                     console.log('Você deve regularizar sua situação para poder ter acesso novamente ao serviço de empréstimo de livros.');
-                    console.log('Seu atendimento está sendo encerrado...');
                     elementosGraficos.rodape();
-
-                    menuPrincipal.sairSistema = true;
+                    despedidaSistema.mostrarTela()
                 break;
             
                 default:
+                    console.log('');
                     console.log('Opção inválida! Tente novamente.');
                     elementosGraficos.rodape();
                 break;

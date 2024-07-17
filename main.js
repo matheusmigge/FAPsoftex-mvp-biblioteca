@@ -7,6 +7,7 @@ const emprestimo = require('./telas/emprestimo')
 const devolucaoRenovacao = require('./telas/devolucaoRenovacao')
 const informacoes = require('./telas/informacoes')
 const quitacaoDebitos = require('./telas/quitacaoDebitos')
+const despedidaSistema = require('./telas/despedidaSistema')
 
 boasVindas.mostrarTela()
 login.mostrarTela()
@@ -38,10 +39,7 @@ while (!menuPrincipal.sairSistema) {
         break;
 
         case 5:
-            console.log('Até a próxima! Encerrando seu atendimento...');
-            elementosGraficos.rodape();
-
-            menuPrincipal.sairSistema = true;
+            despedidaSistema.mostrarTela()
         break;
     
         default:
