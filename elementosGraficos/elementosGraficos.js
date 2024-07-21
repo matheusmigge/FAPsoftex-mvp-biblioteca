@@ -1,10 +1,10 @@
 const elementosGraficos = {
-    cabecalho: function() {
-        console.log(`==========================================`);
-        console.log(``);
+    cabecalhoTitulo: function(titulo) {
+        console.log(`======================================================= \n`);
+        console.log(`${titulo} \n`);
     },
 
-    rodape: function () {
+    espaçamento: function () {
         console.log(``)
     }
 }

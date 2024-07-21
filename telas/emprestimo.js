@@ -1,20 +1,18 @@
-const usuario = require("../checagens/usuario");
 const elementosGraficos = require("../elementosGraficos/elementosGraficos");
-const consultaLivros = require("./consultaLivros");
-const continuacao = require("./continuacao");
+const livrosConsulta = require("./livrosConsulta");
+const continuacao = require("./enterParaContinuar");
+const regularizacaoUsuario = require("../checagens/regularizacaoUsuario");
 
 const emprestimo = {
 
     mostrarTela: function() {
 
-        elementosGraficos.cabecalho();
-        console.log('Empréstimo de Livro(s)');
-        elementosGraficos.rodape();
+        elementosGraficos.cabecalhoTitulo('Empréstimo de Livro(s)');
 
-        if (usuario.regularizado) {
-            consultaLivros.mostrarTela()
+        if (regularizacaoUsuario.regularizado) {
+            livrosConsulta.mostrarTela()
         } else {
-            usuario.avisoRegularizacao();
+            regularizacaoUsuario.mostrarAviso();
             continuacao.mostrarTela();
         }
     }

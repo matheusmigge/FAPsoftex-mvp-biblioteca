@@ -1,13 +1,12 @@
 const prompt = require('prompt-sync')();
 const elementosGraficos = require("../elementosGraficos/elementosGraficos")
 
-const continuacao = {
+const enterParaContinuar = {
 
     mostrarTela: function() {
-
-        prompt('Tecle enter para continuar...')
-        elementosGraficos.rodape()
+        prompt('Tecle ENTER para continuar... ')
+        elementosGraficos.espaçamento();
     }
 }
 
-module.exports = continuacao;
+module.exports = enterParaContinuar;

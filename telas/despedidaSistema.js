@@ -5,9 +5,7 @@ const despedidaSistema = {
    
     mostrarTela: function() {
 
-        elementosGraficos.cabecalho();
-        console.log('Até a próxima! Encerrando seu atendimento...');
-        elementosGraficos.rodape();
+        elementosGraficos.cabecalhoTitulo('Até a próxima! Encerrando seu atendimento... ');
         
         menuPrincipal.sairSistema = true;
     }

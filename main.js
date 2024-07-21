@@ -1,21 +1,21 @@
 const boasVindas = require('./telas/boasVindas')
 const login = require('./telas/login')
-const usuario = require('./checagens/usuario')
 const menuPrincipal = require('./telas/menuPrincipal')
 const emprestimo = require('./telas/emprestimo')
 const devolucaoRenovacao = require('./telas/devolucaoRenovacao')
 const informacoes = require('./telas/informacoes')
 const quitacaoDebitos = require('./telas/quitacaoDebitos')
 const despedidaSistema = require('./telas/despedidaSistema')
-const continuacao = require('./telas/continuacao')
+const enterParaContinuar = require('./telas/enterParaContinuar')
+const regularizacaoUsuario = require('./checagens/regularizacaoUsuario')
 
 boasVindas.mostrarTela()
 login.mostrarTela()
-usuario.checarSeRegularizado(login.contaLogada)
+regularizacaoUsuario.checar(login.contaLogada)
 
-if(!usuario.regularizado) {
-    usuario.avisoRegularizacao()
-    continuacao.mostrarTela();
+if(!regularizacaoUsuario.regularizado) {
+    regularizacaoUsuario.mostrarAviso()
+    enterParaContinuar.mostrarTela();
 }
 
 while (!menuPrincipal.sairSistema) {

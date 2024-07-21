@@ -1,20 +1,20 @@
 const elementosGraficos = require("../elementosGraficos/elementosGraficos");
 
-const usuario = {
+const regularizacaoUsuario = {
     regularizado: true,
 
-    checarSeRegularizado: function(usuario) {
+    checar: function(usuario) {
         if(usuario.debito > 0) {
             this.regularizado = false
         }
     },
 
-    avisoRegularizacao: function() {
-        elementosGraficos.rodape();
+    mostrarAviso: function() {
+        elementosGraficos.espaçamento();
         console.log('Atenção: você possui débitos em aberto em nosso sistema!');
         console.log('Regularize sua situação assim que possível para poder voltar a usar o serviço de empréstimo de livros.');
-        elementosGraficos.rodape();
+        elementosGraficos.espaçamento();
     }
 }
 
-module.exports = usuario;
+module.exports = regularizacaoUsuario;

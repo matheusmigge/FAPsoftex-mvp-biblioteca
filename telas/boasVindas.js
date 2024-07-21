@@ -1,10 +1,12 @@
+const elementosGraficos = require("../elementosGraficos/elementosGraficos");
+
 const boasVindas = { 
 
     mostrarTela: function() {
-        console.log(`\n`);
+        elementosGraficos.espaçamento();
         console.log(`Bem vindo a Aquela Biblioteca!`)
         console.log(`Faça seu login para continuar.`);
-        console.log(``);
+        elementosGraficos.espaçamento();
     }
 }
 
