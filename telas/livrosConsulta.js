@@ -38,13 +38,6 @@ const livrosConsulta = {
                     this.livrosFiltrados = bancoLivros;
 
                     elementosGraficos.cabecalhoTitulo(`Listando todos os livros do acervo: `);
-                    livrosListagem.mostrarTela(this.livrosFiltrados);
-                    this.opcaoValida = livrosListagem.opcaoValida
-                    livrosOpcoes.mostrarTela(this.livrosFiltrados);
-
-                    if (livrosOpcoes.voltarMenuPrincipal) {
-                        this.opcaoValida = true;
-                    }
                 break;
 
                 case 2:
@@ -52,18 +45,6 @@ const livrosConsulta = {
                     this.livrosFiltrados = livrosGeneros.livrosFiltrados;
 
                     elementosGraficos.cabecalhoTitulo(`Listando todos os livros do gênero: ${livrosGeneros.generoEscolhido}`);
-
-                    livrosListagem.mostrarTela(this.livrosFiltrados);
-                    this.opcaoValida = livrosListagem.opcaoValida
-                    livrosOpcoes.mostrarTela(this.livrosFiltrados);
-
-                    if (livrosOpcoes.voltarMenuPrincipal) {
-                        this.opcaoValida = true;
-                    }
-
-                    if (opcoesVoltar.voltarMenuPrincipal) {
-                        this.opcaoValida = true;
-                    }
                 break;
 
                 case 3:
@@ -74,14 +55,6 @@ const livrosConsulta = {
                         this.opcaoValida = true;
                     
                         elementosGraficos.cabecalhoTitulo(`Listando todos os livros com autor: "${livrosBuscaPalavra.palavraChave}"`);
-
-                        livrosListagem.mostrarTela(this.livrosFiltrados);
-                        this.opcaoValida = livrosListagem.opcaoValida
-                        livrosOpcoes.mostrarTela(this.livrosFiltrados);
-
-                        if (livrosOpcoes.voltarMenuPrincipal) {
-                            this.opcaoValida = true;
-                        }
                     }
                 break;
 
@@ -91,14 +64,6 @@ const livrosConsulta = {
 
                     if (livrosBuscaPalavra.buscaEncontrada) {
                         elementosGraficos.cabecalhoTitulo(`Listando todos os livros com titulo: "${livrosBuscaPalavra.palavraChave}"`);
-
-                        livrosListagem.mostrarTela(this.livrosFiltrados);
-                        this.opcaoValida = livrosListagem.opcaoValida
-                        livrosOpcoes.mostrarTela(this.livrosFiltrados);
-
-                        if (livrosOpcoes.voltarMenuPrincipal) {
-                            this.opcaoValida = true;
-                        }
                     }
                 break;
 
@@ -115,9 +80,26 @@ const livrosConsulta = {
             
                 default:
                     console.log(`Opção inválida. Por favor, tente novamente.`);
+                    elementosGraficos.espaçamento();
+
                     enterParaContinuar.mostrarTela();
                 break;
-            }   
+            }
+            
+            if (
+                opcaoEscolhida == 1 ||
+                opcaoEscolhida == 2 ||
+                opcaoEscolhida == 3 ||
+                opcaoEscolhida == 4
+            ) {
+                livrosListagem.mostrarTela(this.livrosFiltrados);
+                this.opcaoValida = livrosListagem.opcaoValida
+                livrosOpcoes.mostrarTela(this.livrosFiltrados);
+
+                if (livrosOpcoes.voltarMenuPrincipal || opcoesVoltar.voltarMenuPrincipal) {
+                    this.opcaoValida = true;
+                }
+            }
         }
     }
 }

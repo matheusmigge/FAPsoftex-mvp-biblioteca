@@ -57,9 +57,7 @@ const carrinho = {
                 case 1:
                     opcaoEscolhida = Number(prompt('Digite o número do item a excluir: '))
 
-                    console.log(this.conteudo[opcaoEscolhida-1]);
                     this.removerLivro(opcaoEscolhida)
-                    console.log(this.conteudo);
 
                 break;
 

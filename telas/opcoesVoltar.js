@@ -10,6 +10,7 @@ const opcoesVoltar = {
         var opcaoEscolhida;
         this.opcaoValida = false;
         this.voltarMenuPrincipal = false;
+        this.sairSistema = false;
 
         elementosGraficos.cabecalhoTitulo('Retornar');
 
@@ -38,6 +39,8 @@ const opcoesVoltar = {
             
                 case 3:
                     this.opcaoValida = true;
+                    this.voltarMenuPrincipal = true;
+                    this.sairSistema = true;
                 break;
 
                 default:

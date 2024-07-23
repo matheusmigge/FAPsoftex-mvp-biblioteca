@@ -8,6 +8,8 @@ const quitacaoDebitos = require('./telas/quitacaoDebitos')
 const despedidaSistema = require('./telas/despedidaSistema')
 const enterParaContinuar = require('./telas/enterParaContinuar')
 const regularizacaoUsuario = require('./checagens/regularizacaoUsuario')
+const opcoesVoltar = require('./telas/opcoesVoltar')
+const elementosGraficos = require('./elementosGraficos/elementosGraficos')
 
 boasVindas.mostrarTela()
 login.mostrarTela()
@@ -25,6 +27,10 @@ while (!menuPrincipal.sairSistema) {
     switch (menuPrincipal.opcaoEscolhida) {
         case 1:
             emprestimo.mostrarTela();
+
+            if (opcoesVoltar.sairSistema) {
+                menuPrincipal.sairSistema = true;
+            }
         break;
         
         case 2:
@@ -45,6 +51,7 @@ while (!menuPrincipal.sairSistema) {
     
         default:
             console.log('Opção inválida. Tente novamente.');
+            elementosGraficos.espaçamento();
         break;
     }
 }
