@@ -1,3 +1,5 @@
+const elementosGraficos = require("../elementosGraficos/elementosGraficos");
+
 const livrosListagem = {
 
     listaOrdemAlfabetica: [],
@@ -12,7 +14,7 @@ const livrosListagem = {
             console.log(`${contador} → ${livro.titulo} - ${livro.autor} - ${livro.genero}`);
             contador++;
         }
-        console.log(``);
+        elementosGraficos.espaçamento();
     }
 }
 

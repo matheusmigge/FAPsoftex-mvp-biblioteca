@@ -9,12 +9,14 @@ const livrosGeneros = {
     listaOrdemAlfabetica: [],
     livrosFiltrados: [],
     generoEscolhido: '',
+    opcaoValida: null,
 
     mostrarTela: function() {
 
         this.listaOrdemAlfabetica = bancoGeneros.lista;
+        this.opcaoValida = false;
 
-        do {
+        while (!this.opcaoValida) {
 
             var contador = 1;
             var opcaoEscolhida;
@@ -34,19 +36,19 @@ const livrosGeneros = {
 
             if (opcaoEscolhida >= 1 && opcaoEscolhida < this.listaOrdemAlfabetica.length+1) {
 
-                opcaoValida = true;
+                this.opcaoValida = true;
 
                 this.generoEscolhido = this.listaOrdemAlfabetica[opcaoEscolhida-1];
-
                 this.livrosFiltrados = bancoLivros.filter(livro => livro.genero === this.generoEscolhido)
 
             } else {
                 elementosGraficos.espaçamento();
-                console.log(`Opção inválida. Por favor, tente novamente.`);
+                console.log(`Opção inválida. Por favor, tente novamente.`)
+                elementosGraficos.espaçamento();
 
                 enterParaContinuar.mostrarTela();
             }
-        } while (!opcaoValida);
+        }
     }
 }
 

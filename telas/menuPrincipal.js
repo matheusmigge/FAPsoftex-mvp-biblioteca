@@ -8,12 +8,12 @@ const menuPrincipal = {
 
     mostrarTela: function() {
         elementosGraficos.cabecalhoTitulo('Menu principal')
-        elementosGraficos.espaçamento()
+        
         console.log('1 -> Empréstimo de Livro(s)');
         console.log('2 -> Devolução / Renovação de Livro(s)');
         console.log('3 -> Quitação de débito(s)');
         console.log('4 -> Informações');
-        console.log('5 -> Sair do sistema');
+        console.log('0 -> Sair do sistema');
         elementosGraficos.espaçamento()
 
         this.opcaoEscolhida = Number(prompt('Digite a opção escolhida: '))

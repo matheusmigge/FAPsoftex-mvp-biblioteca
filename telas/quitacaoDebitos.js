@@ -19,7 +19,8 @@ const quitacaoDebitos = {
 
             console.log(`Você tem débitos em aberto no valor de R$ ${login.contaLogada.debito.toFixed(2)}.`);
             console.log('Deseja pagar agora?');
-            console.log('');
+            elementosGraficos.espaçamento();
+            
             console.log('1 -> Sim');
             console.log('2 -> Não');
             elementosGraficos.espaçamento();

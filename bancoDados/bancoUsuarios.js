@@ -9,6 +9,12 @@ var bancoUsuarios = [
         senha: '1234',
         debito: 0,
     },
+
+    {
+        login: '',
+        senha: '',
+        debito: 0,
+    },
 ];
 
 module.exports = bancoUsuarios;

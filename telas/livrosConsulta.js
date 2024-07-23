@@ -5,18 +5,20 @@ const enterParaContinuar = require('./enterParaContinuar');
 const livrosBuscaPalavra = require('./livrosBuscaPalavra');
 const livrosGeneros = require('./livrosGeneros');
 const livrosListagem = require('./livrosListagem');
+const livrosOpcoes = require('./livrosOpcoes');
+const opcoesVoltar = require('./opcoesVoltar');
 
 const livrosConsulta = {
 
     livrosFiltrados: [],
+    opcaoValida: null,
 
-    mostrarTela: function() {
+    mostrarTela: function() {;
 
         var opcaoEscolhida;
-        var opcaoValida = false;
+        this.opcaoValida = false;
 
-        do {
-
+        while(!this.opcaoValida) {
             elementosGraficos.cabecalhoTitulo('Consulta de livros');
             console.log('Selecione uma das opções de busca: ');
             elementosGraficos.espaçamento();
@@ -33,21 +35,35 @@ const livrosConsulta = {
          
             switch (opcaoEscolhida) {
                 case 1:
-                    opcaoValida = true;
                     this.livrosFiltrados = bancoLivros;
 
                     elementosGraficos.cabecalhoTitulo(`Listando todos os livros do acervo: `);
                     livrosListagem.mostrarTela(this.livrosFiltrados);
+                    this.opcaoValida = livrosListagem.opcaoValida
+                    livrosOpcoes.mostrarTela(this.livrosFiltrados);
+
+                    if (livrosOpcoes.voltarMenuPrincipal) {
+                        this.opcaoValida = true;
+                    }
                 break;
 
                 case 2:
-                    opcaoValida = true;
                     livrosGeneros.mostrarTela();
                     this.livrosFiltrados = livrosGeneros.livrosFiltrados;
 
                     elementosGraficos.cabecalhoTitulo(`Listando todos os livros do gênero: ${livrosGeneros.generoEscolhido}`);
 
                     livrosListagem.mostrarTela(this.livrosFiltrados);
+                    this.opcaoValida = livrosListagem.opcaoValida
+                    livrosOpcoes.mostrarTela(this.livrosFiltrados);
+
+                    if (livrosOpcoes.voltarMenuPrincipal) {
+                        this.opcaoValida = true;
+                    }
+
+                    if (opcoesVoltar.voltarMenuPrincipal) {
+                        this.opcaoValida = true;
+                    }
                 break;
 
                 case 3:
@@ -55,11 +71,17 @@ const livrosConsulta = {
                     this.livrosFiltrados = livrosBuscaPalavra.livrosFiltrados;
 
                     if (livrosBuscaPalavra.buscaEncontrada) {
-                        
+                        this.opcaoValida = true;
+                    
                         elementosGraficos.cabecalhoTitulo(`Listando todos os livros com autor: "${livrosBuscaPalavra.palavraChave}"`);
 
                         livrosListagem.mostrarTela(this.livrosFiltrados);
-                        opcaoValida = true;
+                        this.opcaoValida = livrosListagem.opcaoValida
+                        livrosOpcoes.mostrarTela(this.livrosFiltrados);
+
+                        if (livrosOpcoes.voltarMenuPrincipal) {
+                            this.opcaoValida = true;
+                        }
                     }
                 break;
 
@@ -71,27 +93,32 @@ const livrosConsulta = {
                         elementosGraficos.cabecalhoTitulo(`Listando todos os livros com titulo: "${livrosBuscaPalavra.palavraChave}"`);
 
                         livrosListagem.mostrarTela(this.livrosFiltrados);
-                        opcaoValida = true;
+                        this.opcaoValida = livrosListagem.opcaoValida
+                        livrosOpcoes.mostrarTela(this.livrosFiltrados);
+
+                        if (livrosOpcoes.voltarMenuPrincipal) {
+                            this.opcaoValida = true;
+                        }
                     }
                 break;
 
                 case 5:
-                    opcaoValida = true;
+                    this.opcaoValida = true;
 
                     elementosGraficos.cabecalhoTitulo(`Sugestão de leitura`);
 
                     console.log(`Para receber uma sugestão, por favor, consulte o bibliotecário de plantão.`);
                     elementosGraficos.espaçamento();
 
+                    enterParaContinuar.mostrarTela();
                 break;
             
                 default:
-
                     console.log(`Opção inválida. Por favor, tente novamente.`);
                     enterParaContinuar.mostrarTela();
                 break;
             }   
-        } while (!opcaoValida);
+        }
     }
 }
 

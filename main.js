@@ -39,7 +39,7 @@ while (!menuPrincipal.sairSistema) {
             informacoes.mostrarTela();
         break;
 
-        case 5:
+        case 0:
             despedidaSistema.mostrarTela()
         break;
     
